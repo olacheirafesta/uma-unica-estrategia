@@ -41,7 +41,9 @@ p{font-size:14.5px;line-height:1.8;color:#1a1a1a}
 .hero .overlay{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55));z-index:1}
 .hero .body{position:relative;z-index:2}
 .hero .check{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid #fff;border-radius:50%;font-family:var(--sans);font-size:18px;font-weight:600;margin-bottom:32px}
-.hero h1{margin:0 auto 28px;max-width:18ch;color:#fff}
+.hero .welcome{font-family:var(--serif);font-style:normal;font-size:clamp(20px,1.8vw,26px);line-height:1.2;color:rgba(255,255,255,.85);margin:24px 0 12px}
+.hero h1{margin:0 auto 28px;color:#fff;font-size:clamp(40px,5.6vw,72px);line-height:1;white-space:nowrap}
+@media (max-width:560px){.hero h1{font-size:36px;white-space:normal}}
 .hero .lead{margin:0 auto;max-width:560px;color:rgba(255,255,255,.92)}
 
 /* DETALHES — ficha do workshop */
@@ -105,7 +107,8 @@ footer .social .sep{opacity:.4}
   <div class="container body">
     <div class="check">✓</div>
     <span class="eyebrow dark">Compra confirmada</span>
-    <h1 style="margin-top:24px">Bem-vinda ao workshop <em>Uma única<br>estratégia</em><sup class="tm">™</sup></h1>
+    <div class="welcome">Bem-vinda ao workshop</div>
+    <h1>Uma única <em>estratégia</em><sup class="tm">™</sup></h1>
     <p class="lead">Recebeste já o teu recibo no email. Em breve enviamos o link Zoom e os detalhes finais.</p>
   </div>
 </section>
@@ -119,7 +122,7 @@ footer .social .sep{opacity:.4}
         <h2>Marca já no <em>calendário</em>.</h2>
         <p style="margin-top:24px;color:var(--neutral)">Adiciona o evento ao teu calendário para não te esqueceres. Vamos enviar-te o link do Zoom no dia anterior, por email.</p>
         <div class="calendar">
-          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Workshop%20Uma%20%C3%BAnica%20estrat%C3%A9gia%E2%84%A2&dates=20260519T100000/20260519T113000&details=Workshop%20online%20de%2090%20minutos%20%C2%B7%20Adriana%20Cheira%27Festa%20%C2%B7%20Event%20Business%20School%E2%84%A2.%0A%0ALink%20Zoom%3A%20https%3A%2F%2Fus06web.zoom.us%2Fj%2F88522790842%3Fpwd%3DA51dKbaisAyWSY0sRf5FqGDUzYrKMo.1%0A%0AO%20link%20tamb%C3%A9m%20aparece%20na%20p%C3%A1gina%20de%20obrigado%20e%20no%20email%20de%20confirma%C3%A7%C3%A3o.&location=https%3A%2F%2Fus06web.zoom.us%2Fj%2F88522790842%3Fpwd%3DA51dKbaisAyWSY0sRf5FqGDUzYrKMo.1&ctz=Europe/Lisbon" target="_blank" rel="noopener">Google Calendar →</a>
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Workshop%20Uma%20%C3%BAnica%20estrat%C3%A9gia%E2%84%A2&dates=20260519T100000/20260519T113000&details=Workshop%20online%20de%2090%20minutos%20%C2%B7%20Adriana%20Cheira%E2%80%99Festa%20%C2%B7%20Event%20Business%20School%E2%84%A2.%20O%20link%20do%20Zoom%20%C3%A9%20enviado%20no%20dia%20anterior%20por%20email.&location=Online%20%C2%B7%20Zoom&ctz=Europe/Lisbon" target="_blank" rel="noopener">Google Calendar →</a>
           <a href="./uma-unica-estrategia.ics" download>Apple / Outlook (.ics) →</a>
         </div>
       </div>
