@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Event Business School//Workshop Uma única estratégia//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:workshop-uma-unica-estrategia-19-05-2026@eventbusinessschool.pt
+DTSTAMP:20260505T160000Z
+DTSTART:20260519T090000Z
+DTEND:20260519T103000Z
+SUMMARY:Workshop · Uma única estratégia™
+DESCRIPTION:Workshop online de 90 minutos com Adriana Cheira'Festa · Event Business School™.\n\nO link do Zoom é enviado no dia 18 de Maio por email.\n\nMais info: https://www.instagram.com/adrianacheirafesta/
+LOCATION:Online · Zoom (link enviado por email no dia 18 Maio)
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Workshop Uma única estratégia em 1 hora
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
