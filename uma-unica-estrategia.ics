@@ -9,10 +9,11 @@ DTSTAMP:20260505T160000Z
 DTSTART:20260519T090000Z
 DTEND:20260519T103000Z
 SUMMARY:Workshop · Uma única estratégia™
-DESCRIPTION:Workshop online de 90 minutos com Adriana Cheira'Festa · Event Business School™.\n\nO link do Zoom é enviado no dia 18 de Maio por email.\n\nMais info: https://www.instagram.com/adrianacheirafesta/
-LOCATION:Online · Zoom (link enviado por email no dia 18 Maio)
+DESCRIPTION:Workshop online de 90 minutos com Adriana Cheira'Festa · Event Business School™.\n\nLink Zoom: https://us06web.zoom.us/j/88522790842?pwd=A51dKbaisAyWSY0sRf5FqGDUzYrKMo.1\n\nMais info: https://www.instagram.com/adrianacheirafesta/
+LOCATION:https://us06web.zoom.us/j/88522790842?pwd=A51dKbaisAyWSY0sRf5FqGDUzYrKMo.1
+URL:https://us06web.zoom.us/j/88522790842?pwd=A51dKbaisAyWSY0sRf5FqGDUzYrKMo.1
 STATUS:CONFIRMED
-SEQUENCE:0
+SEQUENCE:1
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Workshop Uma única estratégia em 1 hora
