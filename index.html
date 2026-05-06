@@ -510,12 +510,26 @@ footer .social .sep{opacity:.4}
   var lnd = 'umaunicaestrategia';
   var ref = (src+'__'+med+'__'+cmp+'__'+ctn+'__'+lnd)
     .substring(0,200).replace(/[^a-zA-Z0-9_-]/g,'_');
+  // Decora todos os links Stripe com client_reference_id
   document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function(a){
     var u = new URL(a.href);
     u.searchParams.set('client_reference_id', ref);
     a.href = u.toString();
+    // Em iframe Wix, target=_blank é bloqueado por sandbox.
+    // Intercepta o clique e pede ao parent para navegar.
+    a.addEventListener('click', function(e){
+      var url = a.href;
+      var inIframe = window.self !== window.top;
+      if (inIframe){
+        e.preventDefault();
+        try { window.parent.postMessage({type:'ebs-checkout', url:url}, '*'); } catch(_){}
+        // Fallback: tenta navegar o topo (precisa de allow-top-navigation)
+        try { window.top.location.href = url; }
+        catch(_){ window.location.href = url; }
+      }
+    });
   });
-  // Smooth scroll funciona dentro do iframe; se o iframe estiver fixed-height, manda postMessage ao parent
+  // Smooth scroll: dentro do iframe pede ao parent para rolar
   document.querySelectorAll('a.js-scroll[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       var id = a.getAttribute('href').slice(1);
@@ -523,7 +537,6 @@ footer .social .sep{opacity:.4}
       if (!el) return;
       e.preventDefault();
       el.scrollIntoView({behavior:'smooth', block:'start'});
-      // Tentativa adicional: pedir ao parent para scrollar à posição equivalente
       try {
         var top = el.getBoundingClientRect().top + (window.pageYOffset || 0);
         window.parent.postMessage({type:'ebs-scroll', top: top}, '*');
