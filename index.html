@@ -264,8 +264,8 @@ footer .social .sep{opacity:.4}
         <p class="lead">Para ter clientes <em>todos os meses</em> no teu negócio de eventos, sem depender do boca-a-boca, feiras ou plataformas.</p>
         <p class="sub">Se neste momento o teu negócio depende de recomendações, feiras ou plataformas, vais sair com uma estratégia única, prática e implementável que traz resultados.</p>
         <div class="ctas">
-          <a href="#cta" class="btn">Reservar lugar</a>
-          <a href="#metodo" class="linkcta">O que vais aprender</a>
+          <a href="https://buy.stripe.com/dRm00l2yp7yrchG9ZT8N209" target="_blank" rel="noopener" class="btn">Reservar lugar</a>
+          <a href="#metodo" class="linkcta js-scroll">O que vais aprender</a>
         </div>
       </div>
       <div class="visual">
@@ -514,6 +514,21 @@ footer .social .sep{opacity:.4}
     var u = new URL(a.href);
     u.searchParams.set('client_reference_id', ref);
     a.href = u.toString();
+  });
+  // Smooth scroll funciona dentro do iframe; se o iframe estiver fixed-height, manda postMessage ao parent
+  document.querySelectorAll('a.js-scroll[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+      // Tentativa adicional: pedir ao parent para scrollar à posição equivalente
+      try {
+        var top = el.getBoundingClientRect().top + (window.pageYOffset || 0);
+        window.parent.postMessage({type:'ebs-scroll', top: top}, '*');
+      } catch(_) {}
+    });
   });
 })();
 </script>
