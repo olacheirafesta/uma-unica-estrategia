@@ -22,5 +22,34 @@
 <section class="tensao tight"><div class="container narrow"><div class="copy"><span class="eyebrow">Importante</span><h2>Se continuares <em>como estás</em>:</h2><ul class="list"><li><span class="n">01</span><span class="t">vais continuar a <em>depender dos outros</em> para teres clientes</span></li><li><span class="n">02</span><span class="t">vais continuar a ter um <em>negócio instável</em></span></li><li><span class="n">03</span><span class="t">vais continuar <em>sem previsibilidade</em> no teu negócio</span></li></ul><div class="reframe"><span class="eyebrow">Mas isso não é o mercado</span><div class="h">É a <em>estratégia</em> (ou a falta dela).</div></div></div></div></section>
 <section class="ctaf dark"><div class="bg-photo"><img src="assets/visuais/visual-04.png" alt=""></div><div class="overlay"></div><div class="water">decide</div><div class="container body"><span class="eyebrow dark">Daqui a 3 meses</span><h2>Ou estás <span class="strike">exactamente</span> no mesmo sítio.<br>Ou tens um negócio <em>completamente diferente.</em></h2><p class="lead">A diferença não é o que sabes. É o que <span class="uline">decides fazer a seguir</span>.</p><div style="margin-top:64px"><a href="https://buy.stripe.com/dRm00l2yp7yrchG9ZT8N209" class="btn light" target="_blank" rel="noopener">Quero ter clientes todos os meses</a></div><div class="small">47€ · 19 de Maio · 10h · gravação incluída</div></div></section>
 <footer><div class="container row"><img src="assets/brand/logo-monogram.png" alt="EBS" class="logo"><div class="cw">© 2026 Event Business School</div><div class="social"><a href="https://www.instagram.com/adrianacheirafesta/" target="_blank" rel="noopener">Instagram</a><span class="sep">·</span><a href="https://www.youtube.com/@adrianacheirafesta" target="_blank" rel="noopener">YouTube</a></div></div></footer>
+<script>
+(function () {
+  function utmStringFromUrl() {
+    var params = new URLSearchParams(window.location.search);
+    var keys = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"];
+    return keys.map(function (k) { var v = params.get(k); return v ? k + "=" + encodeURIComponent(v) : null; }).filter(Boolean).join("&");
+  }
+  function rewriteStripeLinks() {
+    var utm = utmStringFromUrl();
+    if (!utm) return;
+    document.querySelectorAll('a[href*="buy.stripe.com"], a[href*="checkout.stripe.com"]').forEach(function (a) {
+      if (a.dataset.utmDone === "1") return;
+      try {
+        var url = new URL(a.href);
+        if (!url.searchParams.get("client_reference_id")) {
+          url.searchParams.set("client_reference_id", utm);
+          a.href = url.toString();
+        }
+        a.dataset.utmDone = "1";
+      } catch (e) {}
+    });
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    rewriteStripeLinks();
+    var id = setInterval(rewriteStripeLinks, 1000);
+    setTimeout(function () { clearInterval(id); }, 15000);
+  });
+})();
+</script>
 </body>
 </html>
